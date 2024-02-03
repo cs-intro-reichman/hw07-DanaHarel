@@ -67,6 +67,10 @@ public class SpellChecker {
 		In in = new In(fileName);
 
 		// Your code here
+		for (int i = 0; i < dictionary.length; i++) {
+			String word = in.readString();
+			dictionary[i] = word;
+			}
 
 		return dictionary;
 	}
@@ -78,14 +82,16 @@ public class SpellChecker {
 
 		// check the dictionary to find the closest word
 		for (int i = 0; i < dictionary.length; i++) {
-			// Calculate the Levenshtein distance between the given word and the current word in the dictionary
-			int distance = levenshtein(word.toLowerCase(), dictionary[i].toLowerCase());
+			//  check for null values before using toLowerCase()
+			if (dictionary[i] != null) {
+				// Calculate the Levenshtein distance between the given word and the current word in the dictionary
+				int distance = levenshtein(word.toLowerCase(), dictionary[i].toLowerCase());
 	
-			// Check if the current distance is smaller than the minimum distance
-			if (distance < minimalDistance) 
-			{
-				minimalDistance = distance;
-				closestWord = i;
+				// Check if the current distance is smaller than the minimum distance
+				if (distance < minimalDistance) {
+					minimalDistance = distance;
+					closestWord = i;
+				}
 			}
 		}
 		   // Check if the minimum distance is in the threshold
