@@ -63,17 +63,19 @@ public class SpellChecker {
 
 	public static String[] readDictionary(String fileName) {
 		String[] dictionary = new String[3000];
-
+	
 		In in = new In(fileName);
-
+	
 		// Your code here
 		for (int i = 0; i < dictionary.length; i++) {
 			String word = in.readString();
 			dictionary[i] = word;
 			}
 
+	
 		return dictionary;
 	}
+	
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		// Your code goes here
@@ -95,13 +97,10 @@ public class SpellChecker {
 			}
 		}
 		   // Check if the minimum distance is in the threshold
-		    if (minimalDistance <= threshold) 
-			//return the closest word from the dictionary
-			  {return dictionary[closestWord];}
-		    
-			 else
-             //return the original word	
-			  {return word;}
+		   if (minimalDistance <= threshold)
+		   {return dictionary[closestWord];}
+	       else
+		   {return word;}
 	 
 	}
 
