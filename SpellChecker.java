@@ -49,14 +49,7 @@ public class SpellChecker {
 	
 		// Return the minimum of the three operations
            
-		if (insert <= delete && insert <= substitute) //insert is minimum
-		   {return insert;} 
-
-			 else if (delete <= insert && delete <= substitute) //delete is minimum
-			  {return delete;} 
-
-			  else 
-			   {return substitute;} //substitute is minimum        
+		return Math.min(insert, Math.min(delete, substitute));       
 
 	}
 	
@@ -67,10 +60,11 @@ public class SpellChecker {
 		In in = new In(fileName);
 	
 		// Your code here
-		for (int i = 0; i < dictionary.length; i++) {
-			String word = in.readString();
-			dictionary[i] = word;
-			}
+		int i = 0;
+           while (in.hasNextLine() && i < dictionary.length) {
+              String word = in.readLine().trim();  // read and trim to remove whitespaces
+              dictionary[i++] = word;
+		   }
 
 	
 		return dictionary;
