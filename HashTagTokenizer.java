@@ -47,10 +47,12 @@ public class HashTagTokenizer {
 		int start = 0;
 	
 		for (int i = 1; i <= N; i++) {
+			// #feedback - you should use toLowerCase to make it case-insensitive.
 			String wordCheck = hashtag.substring(start, i);
 			if (existInDictionary(wordCheck, dictionary)) {
 				System.out.println(wordCheck);
 				start = i;
+				// #feedback - you should call breakHashTag recursively here. 
 			}
 		}
 	}
