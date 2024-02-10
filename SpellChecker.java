@@ -33,6 +33,7 @@ public class SpellChecker {
 		int difference;
 		//first characters of word1 and word2 are the same - difference is set to 0
           if (word1.charAt(0) == word2.charAt(0)) 
+		  // #feedback - you should call levenshtein function here - levenshtein(tail(word1), tail(word2)).
 		   {difference = 0;} 
 		   //first characters are different - difference is set to 1
 		   else 
